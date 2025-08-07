@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TIMA Integrated Technologies Design System - Multi-theme Corporate Identity */
+
+@layer base {
+  :root {
+    /* Base Theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Cyberpunk Theme - TIMA Technologies */
+    --cyber-bg: 240 10% 6%;
+    --cyber-bg-secondary: 240 8% 10%;
+    --cyber-neon-primary: 282 100% 65%;
+    --cyber-neon-secondary: 195 100% 50%;
+    --cyber-text: 0 0% 95%;
+    --cyber-text-muted: 0 0% 70%;
+    --cyber-accent: 120 100% 40%;
+    --cyber-grid: 240 8% 15%;
+    
+    /* Gaming Theme - TIMA Embedded */
+    --gaming-bg: 220 20% 8%;
+    --gaming-bg-secondary: 220 15% 12%;
+    --gaming-primary: 30 100% 50%;
+    --gaming-secondary: 200 100% 60%;
+    --gaming-text: 0 0% 95%;
+    --gaming-accent: 350 100% 65%;
+    --gaming-highlight: 60 100% 50%;
+    
+    /* Eco Theme - TIMA EV */
+    --eco-bg: 120 20% 97%;
+    --eco-bg-secondary: 120 15% 94%;
+    --eco-primary: 140 60% 40%;
+    --eco-secondary: 100 50% 45%;
+    --eco-text: 120 20% 10%;
+    --eco-text-muted: 120 10% 40%;
+    --eco-accent: 160 80% 35%;
+    --eco-light: 120 40% 85%;
+    
+    /* E-commerce Theme - TIMA Products */
+    --ecom-bg: 0 0% 98%;
+    --ecom-bg-secondary: 0 0% 95%;
+    --ecom-primary: 210 100% 50%;
+    --ecom-secondary: 25 100% 55%;
+    --ecom-text: 0 0% 10%;
+    --ecom-text-muted: 0 0% 45%;
+    --ecom-accent: 340 75% 55%;
+    --ecom-card: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-bg)) 0%, hsl(var(--cyber-bg-secondary)) 100%);
+    --gradient-cyber-neon: linear-gradient(45deg, hsl(var(--cyber-neon-primary)) 0%, hsl(var(--cyber-neon-secondary)) 100%);
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-bg)) 0%, hsl(var(--gaming-bg-secondary)) 100%);
+    --gradient-gaming-highlight: linear-gradient(45deg, hsl(var(--gaming-primary)) 0%, hsl(var(--gaming-secondary)) 100%);
+    --gradient-eco: linear-gradient(135deg, hsl(var(--eco-bg)) 0%, hsl(var(--eco-bg-secondary)) 100%);
+    --gradient-eco-fresh: linear-gradient(45deg, hsl(var(--eco-primary)) 0%, hsl(var(--eco-secondary)) 100%);
+    --gradient-ecom: linear-gradient(135deg, hsl(var(--ecom-bg)) 0%, hsl(var(--ecom-bg-secondary)) 100%);
+    --gradient-ecom-product: linear-gradient(45deg, hsl(var(--ecom-primary)) 0%, hsl(var(--ecom-secondary)) 100%);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Shadows */
+    --shadow-cyber: 0 0 30px hsl(var(--cyber-neon-primary) / 0.3), 0 0 60px hsl(var(--cyber-neon-secondary) / 0.1);
+    --shadow-gaming: 0 10px 40px hsl(var(--gaming-primary) / 0.3), 0 5px 20px hsl(var(--gaming-secondary) / 0.2);
+    --shadow-eco: 0 10px 30px hsl(var(--eco-primary) / 0.2), 0 5px 15px hsl(var(--eco-secondary) / 0.1);
+    --shadow-ecom: 0 5px 25px hsl(var(--ecom-primary) / 0.15), 0 2px 10px hsl(var(--ecom-secondary) / 0.1);
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode adjustments */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Animation Classes */
+@layer utilities {
+  .cyber-glow {
+    box-shadow: var(--shadow-cyber);
+    animation: cyberPulse 2s ease-in-out infinite alternate;
+  }
+  
+  .gaming-highlight {
+    box-shadow: var(--shadow-gaming);
+    transition: var(--transition-bounce);
+  }
+  
+  .eco-fresh {
+    box-shadow: var(--shadow-eco);
+    transition: var(--transition-elastic);
+  }
+  
+  .ecom-card {
+    box-shadow: var(--shadow-ecom);
+    transition: var(--transition-smooth);
+  }
+
+  .parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .text-gradient-cyber {
+    background: var(--gradient-cyber-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gaming {
+    background: var(--gradient-gaming-highlight);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-eco {
+    background: var(--gradient-eco-fresh);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-ecom {
+    background: var(--gradient-ecom-product);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+@keyframes cyberPulse {
+  0% { box-shadow: 0 0 20px hsl(var(--cyber-neon-primary) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--cyber-neon-primary) / 0.6), 0 0 80px hsl(var(--cyber-neon-secondary) / 0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+@keyframes leafFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+}
+
+/* Wind and Leaf Left-to-Right Animations for TIMA EV */
+@keyframes windFlow {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+  }
+}
+
+@keyframes leafDrift {
+  0% {
+    left: -50px;
+    opacity: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+/* Curved Wind Animation for Side Sections */
+@keyframes curvedWind {
+  0% {
+    left: -400px;
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}
+
+/* Sparse Leaf Drift with Wind */
+@keyframes sparseLeafDrift {
+  0% {
+    left: -40px;
+    opacity: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-15px) rotate(120deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(200deg);
+  }
+  70% {
+    transform: translateY(-12px) rotate(300deg);
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+    transform: translateY(5px) rotate(360deg);
+  }
+}
