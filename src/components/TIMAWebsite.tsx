@@ -458,8 +458,8 @@ const TIMAWebsite = () => {
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
-          <source src="https://videos.pexels.com/video-files/2792370/2792370-hd_1920_1080_30fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/2792370/2792370-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/30064773/12896321_2560_1440_60fps.mp4" />
+          <source src="https://videos.pexels.com/video-files/30064773/12896321_2560_1440_60fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
         
