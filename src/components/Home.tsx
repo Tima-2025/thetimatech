@@ -235,7 +235,7 @@ const Home = () => {
             <div ref={aboutRef} className="max-w-prose mx-auto text-center lg:text-left">
               <h2 className="text-4xl font-bold text-white mb-6">About TIMA</h2>
               <p className="text-lg text-gray-300 leading-relaxed">
-                At TIMA Integrated Technology, we are more than just a tech company—we are a partner in transformation.
+                At TIMA Integrated Technology, we are more than just a tech company we are a partner in transformation.
                  Our team is fueled by a passion for innovation, driven by expertise, and focused on delivering exceptional value to our clients.
               </p>
             </div>
@@ -285,7 +285,7 @@ const Home = () => {
             <Card className="bg-slate-800/50 border-slate-700 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-8 text-center">
                 <img src="/lovable-uploads/e247af24-9c60-4f15-8223-079e0bed38ce.png" alt="CEO" className="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
-                <h3 className="text-2xl font-bold text-white mb-2">Manos Simson</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Mr. Manos Simson</h3>
                 <p className="text-blue-400 mb-4">Chief Executive Officer</p>
                 <p className="text-gray-300">"Innovation is not just about technology; it's about creating solutions that transform lives and businesses."</p>
               </CardContent>
@@ -294,7 +294,7 @@ const Home = () => {
             <Card className="bg-slate-800/50 border-slate-700 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-8 text-center">
                 <img src="lovable-uploads/director.svg" alt="Director" className="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
-                <h3 className="text-2xl font-bold text-white mb-2">joys Anita</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Mrs. Joys Anita Simson</h3>
                 <p className="text-blue-400 mb-4">Technical Director</p>
                 <p className="text-gray-300">"Excellence in execution combined with visionary thinking drives our success in every project."</p>
               </CardContent>
