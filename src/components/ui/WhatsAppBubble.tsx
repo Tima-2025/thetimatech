@@ -10,7 +10,7 @@ export default function WhatsAppBubble() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed left-4 bottom-4 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400"
+      className="fixed right-4 bottom-4 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400"
       style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.18)" }}
     >
       <svg
