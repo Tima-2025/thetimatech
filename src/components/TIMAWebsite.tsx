@@ -1407,7 +1407,7 @@ const TIMAWebsite = () => {
       {/* Footer */}
       <footer id="contact" className="bg-slate-900 border-t border-slate-700 py-12 px-6">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold text-white mb-4">TIMA Integrated Technologies</h3>
               <p className="text-gray-400 mb-4">"Together We Rise, Together We Thrive."</p>
@@ -1421,7 +1421,7 @@ const TIMAWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link to="/#about" className="hover:text-white transition-colors">About</Link></li>
+               
                 <li><Link to="/division" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link to="/partners" className="hover:text-white transition-colors">Partners</Link></li>
 
@@ -1454,6 +1454,20 @@ const TIMAWebsite = () => {
                 <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
              
               </ul>
+            </div>
+            <div className="md:col-span-1 w-full">
+              <h4 className="text-lg font-semibold text-white mb-4 text-right md:text-left">Our Location</h4>
+              <div className="w-full md:w-[320px] ml-auto">
+                <iframe 
+                  title="TIMA Location"
+                  src="https://www.google.com/maps?q=TIMA+Integrated+Technologies+Pvt+Ltd,+Madurai&output=embed"
+                  width="100%" 
+                  height="180" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-md border border-slate-700"
+                ></iframe>
+              </div>
             </div>
           </div>
           
