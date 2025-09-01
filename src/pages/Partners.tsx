@@ -343,7 +343,7 @@ const Partners = () => {
       {/* Footer */}
       <footer ref={footerRef} className="bg-card border-t border-border py-16">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-5 gap-8">
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-foreground">TIMA Integrated Technologies</h3>
               <p className="text-muted-foreground">
@@ -354,8 +354,8 @@ const Partners = () => {
             <div className="space-y-4">
               <h4 className="font-semibold text-foreground">Quick Links</h4>
               <div className="space-y-2">
-                <Link to="/#about" className="block text-muted-foreground hover:text-primary transition-colors">About TIMA</Link>
-                <Link to="/division" className="block text-muted-foreground hover:text-primary transition-colors">Division</Link>
+                
+                <Link to="/division/#ai-software" className="block text-muted-foreground hover:text-primary transition-colors">Division</Link>
                 <Link to="/partners" className="block text-muted-foreground hover:text-primary transition-colors">Partners</Link>
                 <Link to="/academy" className="block text-muted-foreground hover:text-primary transition-colors">Academy</Link>
 
@@ -391,6 +391,20 @@ const Partners = () => {
                 <Twitter className="social-icon w-6 h-6 text-muted-foreground hover:text-primary transition-colors cursor-pointer hover:scale-110 transform duration-200" />
                 <Instagram className="social-icon w-6 h-6 text-muted-foreground hover:text-primary transition-colors cursor-pointer hover:scale-110 transform duration-200" />
                 <Linkedin className="social-icon w-6 h-6 text-muted-foreground hover:text-primary transition-colors cursor-pointer hover:scale-110 transform duration-200" />
+              </div>
+            </div>
+            <div className="md:col-span-1 w-full">
+              <h4 className="font-semibold text-foreground text-right md:text-left">Our Location</h4>
+              <div className="w-full md:w-[320px] ml-auto mt-2">
+                <iframe 
+                  title="TIMA Location"
+                  src="https://www.google.com/maps?q=TIMA+Integrated+Technologies+Pvt+Ltd,+Madurai&output=embed"
+                  width="100%" 
+                  height="180" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-md border"
+                ></iframe>
               </div>
             </div>
           </div>
