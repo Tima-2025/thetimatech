@@ -33,6 +33,8 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDivisionOpen, setIsDivisionOpen] = useState(false);
   const navigate = useNavigate();
+  const [hoveredTimelineIndex, setHoveredTimelineIndex] = useState<number | null>(null);
+  const [showFixedTimelineLine, setShowFixedTimelineLine] = useState(false);
 
   const banners = [
     {
@@ -146,6 +148,23 @@ const Home = () => {
 
   }, []);
 
+  // Fixed center line visibility while the timeline section is in view
+  useEffect(() => {
+    if (!timelineRef.current) return;
+    const st = ScrollTrigger.create({
+      trigger: timelineRef.current as any,
+      start: 'top center',
+      end: 'bottom center',
+      onEnter: () => setShowFixedTimelineLine(true),
+      onEnterBack: () => setShowFixedTimelineLine(true),
+      onLeave: () => setShowFixedTimelineLine(false),
+      onLeaveBack: () => setShowFixedTimelineLine(false),
+    });
+    return () => {
+      st.kill();
+    };
+  }, []);
+
   // Auto-slide effect for banners
   useEffect(() => {
     const interval = setInterval(() => {
@@ -228,54 +247,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About TIMA Section */}
-      <section id="about" className="py-20 px-4">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div ref={aboutRef} className="max-w-prose mx-auto text-center lg:text-left">
-              <h2 className="text-4xl font-bold text-white mb-6">About TIMA</h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                At TIMA Integrated Technology, we are more than just a tech company we are a partner in transformation.
-                 Our team is fueled by a passion for innovation, driven by expertise, and focused on delivering exceptional value to our clients.
-              </p>
+      
+
+      {/* Timeline Section */}
+      <section ref={timelineRef} className="py-28 px-6 bg-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-12">Our Journey</h2>
+          <div className="relative w-full">
+            {/* single center line aligned to the row */}
+            <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-cyan-500/70 z-0"></div>
+
+            {/* responsive grid layout */}
+            <div className="relative z-10 py-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 xl:gap-6 items-center min-h-[520px]">
+                {timelineData.map((item, index) => {
+                  const isAbove = index % 2 === 0;
+                  const isActive = hoveredTimelineIndex === index;
+                  return (
+                    <div key={index} className={`group relative ${isAbove ? 'self-start mt-2' : 'self-end mb-2'}`}>
+                      <div
+                        className={`timeline-item w-full rounded-xl border bg-slate-800 px-4 py-4 lg:px-5 lg:py-5 text-left transition ${isActive ? 'border-cyan-600 shadow-[0_0_0_2px_rgba(34,211,238,0.25)]' : 'border-slate-700 hover:border-cyan-600'}`}
+                        onMouseEnter={() => setHoveredTimelineIndex(index)}
+                        onMouseLeave={() => setHoveredTimelineIndex(null)}
+                        onFocus={() => setHoveredTimelineIndex(index)}
+                        onBlur={() => setHoveredTimelineIndex(null)}
+                        tabIndex={0}
+                      >
+                        <div className="text-cyan-400 font-bold text-base lg:text-lg leading-none">{item.year}</div>
+                        <div className="text-cyan-200 text-xs lg:text-sm mt-1 leading-tight">{item.event}</div>
+                      </div>
+
+                      {/* Hover popover rectangle near center line */}
+                      <div
+                        className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${isAbove ? 'top-[calc(50%+32px)]' : 'bottom-[calc(50%+32px)]'} z-20 hidden group-hover:block`}
+                      >
+                        <div className="bg-slate-900/95 border border-cyan-600/40 rounded-xl shadow-xl p-4 max-w-xs lg:max-w-sm xl:max-w-md text-gray-300 text-xs lg:text-sm">
+                          <div className="font-semibold text-cyan-300 mb-1">{item.event}</div>
+                          <div className="leading-relaxed">{item.description}</div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex justify-center">
-              <img 
-                ref={logoRef}
-                src="/lovable-uploads/timafinal.png" 
-                alt="TIMA Logo" 
-                className="w-64 h-64 object-contain"
-              />
-            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section ref={timelineRef} className="py-20 px-4 bg-slate-900">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white text-center mb-16">Our Journey</h2>
-          <div className="timeline-container relative max-w-4xl mx-auto">
-            {/* Animated central timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-0.5 w-1 h-full bg-slate-600"></div>
-            <div className="timeline-line absolute left-1/2 transform -translate-x-0.5 w-1 h-0 bg-gradient-to-b from-cyan-400 to-cyan-600 shadow-lg shadow-cyan-400/50"></div>
-            {timelineData.map((item, index) => (
-              <div key={index} className={`timeline-item flex flex-col md:flex-row items-center mb-16 relative w-full text-center md:text-left ${item.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`w-full md:w-1/2 px-0 md:${item.side === 'right' ? 'pl-12' : 'pr-12'}`}>
-                  <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <h3 className="text-3xl font-bold text-cyan-400 mb-2">{item.year}</h3>
-                    <h4 className="text-xl font-semibold text-cyan-300 mb-3">{item.event}</h4>
-                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                  </div>
-                </div>
-                {/* Timeline dot */}
-                <div className="w-6 h-6 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full border-4 border-slate-900 relative z-10 shadow-lg shadow-cyan-400/50 my-4 md:my-0"></div>
-                <div className="w-full md:w-1/2"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* CEO & Director Section */}
       <section className="py-20 px-6">
@@ -299,6 +320,29 @@ const Home = () => {
                 <p className="text-gray-300">"Excellence in execution combined with visionary thinking drives our success in every project."</p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* About TIMA Section */}
+      <section id="about" className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div ref={aboutRef} className="max-w-prose mx-auto text-center lg:text-left">
+              <h2 className="text-4xl font-bold text-white mb-6">About TIMA</h2>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                At TIMA Integrated Technology, we are more than just a tech company we are a partner in transformation.
+                 Our team is fueled by a passion for innovation, driven by expertise, and focused on delivering exceptional value to our clients.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                ref={logoRef}
+                src="/lovable-uploads/timafinal.png" 
+                alt="TIMA Logo" 
+                className="w-64 h-64 object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -368,7 +412,7 @@ const Home = () => {
       {/* Footer */}
       <footer className="bg-slate-900 border-t border-slate-700 py-12 px-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-left items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8 text-center md:text-left items-center">
             <div>
               <h3 className="text-xl font-bold text-white mb-4">TIMA  Integrated Technologies</h3>
               <p className="text-gray-400 mb-4">"Together We Rise, Together We Thrive."</p>
@@ -381,7 +425,7 @@ const Home = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
+              
                 <li><Link to="/division" className="hover:text-white transition-colors">Services</Link></li>
                 <li><Link to="/partners" className="hover:text-white transition-colors">Partners</Link></li>
                 <li><a href="/academy" className="hover:text-white transition-colors">Academy</a></li>
@@ -411,6 +455,20 @@ const Home = () => {
                 <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                
               </ul>
+            </div>
+            <div className="md:col-span-1 w-full">
+              <h4 className="text-lg font-semibold text-white mb-4 text-right md:text-left">Our Location</h4>
+              <div className="w-full md:w-[320px] ml-auto">
+                <iframe 
+                  title="TIMA Location"
+                  src="https://www.google.com/maps?q=TIMA+Integrated+Technologies+Pvt+Ltd,+Madurai&output=embed"
+                  width="100%" 
+                  height="180" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-md border border-slate-700"
+                ></iframe>
+              </div>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-700 gap-y-4">
