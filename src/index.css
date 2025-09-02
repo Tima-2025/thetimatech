@@ -158,6 +158,13 @@
 
 /* Custom Animation Classes */
 @layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .cyber-glow {
     box-shadow: var(--shadow-cyber);
     animation: cyberPulse 2s ease-in-out infinite alternate;
