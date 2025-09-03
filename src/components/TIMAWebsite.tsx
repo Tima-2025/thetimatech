@@ -1460,7 +1460,7 @@ const TIMAWebsite = () => {
               <div className="w-full md:w-[320px] ml-auto">
                 <iframe 
                   title="TIMA Location"
-                  src="https://www.google.com/maps?q=TIMA+Integrated+Technologies+Pvt+Ltd,+Madurai&output=embed"
+                  src="https://www.google.com/maps/place/TIMA+INTEGRATED+TECHNOLOGIES+PRIVATE+LIMITED/@9.9070114,78.1059228,3a,75y,90.35h,90t/data=!3m7!1e1!3m5!1sve_illRacfjIk9Nfjh6oMg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3Dve_illRacfjIk9Nfjh6oMg%26yaw%3D90.34835!7i16384!8i8192!4m7!3m6!1s0x3b00cf8a37a5ef5d:0x3dad7d22f09b1fc0!8m2!3d9.9070064!4d78.1059835!10e5!16s%2Fg%2F11yjkd4wyf?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
                   width="100%" 
                   height="180" 
                   loading="lazy" 
