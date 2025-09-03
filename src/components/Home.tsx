@@ -314,7 +314,7 @@ const Home = () => {
             
             <Card className="bg-slate-800/50 border-slate-700 hover:scale-105 transition-transform duration-300">
               <CardContent className="p-8 text-center">
-                <img src="/public/lovable-uploads/Director.JPG" alt="Director" className="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
+                <img src="/src/assets/Director.jpg" alt="Director" className="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
                 <h3 className="text-2xl font-bold text-white mb-2">Mrs. Joys Anita Simson</h3>
                 <p className="text-blue-400 mb-4">Technical Director</p>
                 <p className="text-gray-300">"Excellence in execution combined with visionary thinking drives our success in every project."</p>
