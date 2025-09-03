@@ -341,7 +341,7 @@ const Partners = () => {
       </section>
 
       {/* Footer */}
-      <footer ref={footerRef} className="bg-card border-t border-border py-16">
+      <footer id="contact" ref={footerRef} className="bg-card border-t border-border py-16">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-5 gap-8">
             <div className="space-y-4">

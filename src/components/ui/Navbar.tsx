@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -9,9 +9,15 @@ export default function Navbar() {
   const [isDivisionOpen, setIsDivisionOpen] = useState(false);
   const navigate = useNavigate();
   const navbarRef = useRef(null);
+  const location = useLocation();
 
   const navigateToSpecificDivision = (sectionId) => {
     navigate(`/division#${sectionId}`);
+  };
+
+  const handleContactClick = (event?: React.MouseEvent) => {
+    if (event) event.preventDefault();
+    navigate('/#contact');
   };
 
   return (
@@ -86,7 +92,8 @@ export default function Navbar() {
             </Link>
             
             <Link 
-              to="/contact" 
+              to="/#contact" 
+              onClick={handleContactClick}
               className="px-4 py-3 text-white/90 hover:text-white font-medium text-sm tracking-wide transition-all duration-300 hover:bg-black/10 rounded-lg"
             >
               Contact
@@ -186,8 +193,8 @@ export default function Navbar() {
                   </Link>
                   
                   <Link
-                    to="/contact"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    to="/#contact"
+                    onClick={(e) => { handleContactClick(e); setIsMobileMenuOpen(false); }}
                     className="block text-white/90 hover:text-white transition-all duration-300 py-3 px-2 hover:bg-white/10 rounded-lg font-medium text-sm tracking-wide"
                   >
                     Contact
