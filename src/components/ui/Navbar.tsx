@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
           <Link to="/" className="flex items-center">
     <img 
-      src="/public/navlogo.png" // Replace with your logo path
+      src="/src/assets/navlogo.png" // Replace with your logo path
       alt="TIMA Logo"
       className="h-20 w-auto" // Increased from h-10
     />
